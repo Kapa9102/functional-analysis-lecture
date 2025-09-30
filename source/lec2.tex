@@ -1,0 +1,140 @@
+% lec2.tex 
+\lecture{2}{08:07 AM Tue, Sep 30 2025}{} 
+
+\begin{definition}[]
+Let $E $ be a set, and $d $ be a metric 
+on $E $, we said that $(E, d)$ is complete if and only if
+every cauchy sequence is convergent
+\end{definition}
+\begin{definition}[]
+  A Banach space is a complete vectorial normed space
+\end{definition}
+\begin{example}
+  \begin{itemize}
+    \item $\KK (\RR , \CC )  $ is a Banach space
+      \item $\KK^n  $  is a Banach space
+        \item if $E $ is a normed space with finite dimension,
+          then $E $ is Banach
+          \item $\ell^{p}(\NN, \KK)  $  with $1 \leq p \leq +\infty  $ is Banach space ( Exercise ).
+            \item 
+              Every finite set product of Banach spaces is a Banach space too.
+  \end{itemize}
+\end{example}
+\begin{proposition}
+  The limit of a sequence in a Banach space (if it exists) is unique.
+\end{proposition}
+\begin{proposition}[]
+Let $F $ be a closed subset of $E $. if $(x_{n})_{n \in  \NN} \subset F  $ is convergent to $x \in E $, 
+then $x \in F $. 
+\end{proposition}
+\begin{center}
+  \textcolor{purple} {
+  \underline{\textsc{Remark:}} }
+\end{center}
+The importance of the notion of equivallent norms on a normed vector space is: \\
+Let $\| . \| _{1} $ and $\| . \| _{2} $ be two equivallent norms on $V = E$. one has: 
+\[
+  (x_{n}) _{n \in  \NN} \text{ CV for }  \| . \| _{1} \iff 
+  (x_{n}) _{n \in  \NN} \text{ CV for } \| . \| _{2}
+\]
+\begin{proposition}[Definition]
+Let $V $ and $W $ be two norms on $V $ ( resp. $W $ ), and let $ f : V \longrightarrow W $ be a function.
+the following statments are equivallent:
+\begin{enumerate}
+\item $f $ is continuous from $V $ into $W $ 
+ \item and: 
+   \[
+   \forall x_0 \in  V, \forall \veps > 0, \exists \dd > 0, \forall x \in V:
+   \quad \| x-x_0 \| \leq \dd \implies 
+   \| f(x) -f(x_0)  \| \leq \veps 
+   \]
+  \item and:
+    \[
+    \forall x \in V, \forall (x_{n}) _{n \in \NN} \in V: \quad 
+    x_{n} \rightarrow x \implies 
+    f(x_{n}) \rightarrow f(x) ( \| f(x_{n} - f(x) )  \| \rightarrow 0 \quad n \rightarrow \infty )  
+    \]
+\end{enumerate}
+\end{proposition}
+\begin{center}
+  \textcolor{purple} {
+  \underline{\textsc{Remark:}} }
+\end{center}
+On finite dimension vector space, all the norm are equivallents.
+\section{Duality}
+Let $V $ and $W $ be two normed vector be two normed vector spaces
+\begin{proposition}[]
+Let $ A : V \longrightarrow W $ be a linear function ( Map ). The following are equivallent:
+\begin{enumerate}
+\item $A $ is continuous on $V $ 
+  \item $A $ is continuous at $0 $ 
+    \item $\exists c > 0$: $\| A(v)  \| \leq  c \| v \| \quad \forall v \in  V $  
+\end{enumerate}
+\end{proposition}
+\begin{definition}[]
+We denote by $L(V, W) $ be the set of all linear functions, we denote $\mathcal{L} (V, W)  $ the set
+of all continuous linear functions
+\end{definition}
+\begin{proposition}[]
+$L(V,W)  $ and $\mathcal{L} (V, W)  $ are vector spaces
+\end{proposition}
+\begin{proposition}[]
+Let $V $ be a normed space, and $W $ be a Banach space then $\mathcal{L} (V, W)$ 
+is Banach space.
+\end{proposition}
+\begin{definition}[]
+Let $(x_{n})_{n \in \NN}  $ be sequence in a normed vector space $E $.
+\begin{itemize}
+  \item we say that the series $\sum_{n=1}^{\infty} x_n  $ converges if the sequence of partial sums 
+    $s_{n} = \sum_{k=1}^{n} x_{k} $ converges.
+    \item we say that the series is normally (absolutely) convergent 
+      if the series of real positive numbers $\sum_{n=1}^{\infty} \| x_n  \|  $ converges
+\end{itemize}
+\end{definition}
+\begin{proposition}[]
+Let $E $ be a normed vector space. The following are equivallents:
+\begin{enumerate}
+\item $E $ is Banach.
+  \item  Every normally convergent series is convergent.
+\end{enumerate}
+\end{proposition}
+\begin{definition}[]
+Let $E $ and $F $ be two normed vector spaces, A function (mapping) from $E $ into $F $ is called
+linear isomorphism if its linear, continuous bijective and its inverse is continuous (naturally linear)
+\end{definition}
+We denote by ISO$(E, F)$ the set of all linear isomporphisms mapping from $E $ into $F $. 
+\begin{theorem}[]
+Let $E $ and $F $ be Banach spaces, then ISO$(E, F)$ is an open subset of $\mathcal{L} (E, F)  $  and the
+map $  u \longrightarrow  u^{-1}$ from ISO$(E, F)$ into ISO$(F, E)  $ is continuous. More, one has 
+if $u_0 \in \text{ISO} (E, F) $ and $u \in B(u_0, \frac{1}{\| u_0^{-1} \| })  $, then 
+$u \in \text{ISO} (E, F) $, and:
+\[
+u^{-1} = \sum_{n=1}^{\infty} (id_{E} - u_0^{-1}u) ^n \cdot u_0^{-1}
+\]
+\end{theorem}
+\begin{corollary}[Von Neumann]
+  Let $E $ be a Banach space, and $u \in \mathcal{L} (E) = \mathcal{L} (E, E)  $. \\
+  if $\| u \| <  1 $, then $id_{E} - u$ belongs to $\text{ISO} (E, E) = \text{ISO} (E) $ and it's 
+  inverse is given by: 
+  \[
+    (Id_{E} - u) ^{-1} = \sum_{n=1}^{\infty} u^n 
+  \]
+\end{corollary}
+  \textcolor{purple} {
+  \underline{\textsc{Notations:}} } $E' = \mathcal{L} (E)  $, 
+  and $E^{*} = L(E)  $.
+  \begin{enumerate}
+  \item $E'$ toplogical dual space of $E$. 
+  \item $E^{*} $ algebraic dual space of $E$. 
+  \end{enumerate}
+  \begin{proposition}[]
+  Let $E $ be a Banach space $E_0 $ be normed vector space.
+  let $ p : E \longrightarrow E_0 $ a continuous linear surjection mapping. If there exists
+  $c > 0 $ such that $\forall y_0 \in  E_0, \exists x \in  E $ such that $f(x) = y_0 $ and 
+  $\| x \| \leq c \| y_0 \|  $ then $E_0 $ is Banach.
+  \end{proposition}
+  \begin{theorem}[]
+  Let $E $ be a Banach space and let $F $ be a closed subspace of $E $. Then $E_{|F} $ is Banach too.
+  \end{theorem}
+% end of file
+ 

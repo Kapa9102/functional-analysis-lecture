@@ -1,0 +1,92 @@
+% lec1.tex 
+\chapter{Overview of Hilbert and Banach spaces}
+
+\lecture{1}{08:22 AM Tue, Sep 23 2025}{Overview} 
+
+% margin pars 
+
+\marginpar{compact $\iff  $  closed and bounded (finite dimensional)\\}
+\marginpar{compact $ \implies  $ closed bounded (generally)\\}
+\marginpar{compactness is important because most important theorems
+use compact by assumption\\}
+\marginpar{more open sets = less compacts}
+
+% margin pars 
+
+Let $E $ be a given set, and let $\KK = \CC, \KK = \RR $ be
+the know fields. let us define two operations on 
+$E \times E $ and $\KK \times E $ by the : 
+\[
+\begin{array}{cccc}
+      + : &  E \times E   & \longrightarrow & E \\
+
+           &  (x, y)   & \longmapsto     & x + y \\ 
+\end{array}
+\]
+
+\[
+\begin{array}{cccc}
+      \cdot   : &  \KK \times E   & \longrightarrow & E \\
+
+           &  (\lm, x)   & \longmapsto     & \lm \cdot  x \\ 
+\end{array}
+\]
+
+\begin{definition}[Vector space]
+A vector space $E $ over $\KK $  is a set equipped by two operations, 
+called additions and scalar multiplication which verify the 
+following axioms
+\begin{enumerate}
+\item $\forall x, y \in  E : \quad x + y = y + x$
+\item $\forall x, y, z \in  E : \quad (x + y)  + z = x + (y + z) $ 
+ \item $ \exists 0_{E} \in  E : \quad x + 0_{E} = x$ 
+\item $\forall x \in  E, \exists y \in  E: \quad  
+  x + y = 0_{E}$ \hfill (denote y = -x)
+\item $\forall \lm, \bb \in  \KK, \forall  x \in E: \quad  (\al \bb ) x = \al (\bb x)  $  
+\item $\forall x \in  E: \quad  1_{\KK} \cdot x = x $  
+\item $\forall x, y \in E, \forall  \lm \in  \KK: \quad \lm ( x + y )  = \lm x + \lm y $ 
+ \item $\forall  \al, \bb \in  \KK, \forall  x \in  E: \quad (\al + \bb ) x = \al x + \bb x $  
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Vector subspace]
+A subset $F \subset E $ is called a subvector space if:
+\begin{enumerate}
+\item $0_{E} \subset F $ 
+\item  $\forall \lm \in  \KK, \forall x,y \in  E \implies \lm x + y \in  E $ 
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Inner product]
+An inner product on a vector space $E $ is a function: 
+\[
+\begin{array}{cccc}
+      \left\langle \cdot  \right\rangle  : &  E \times E   & \longrightarrow & \KK \\
+
+           &  (x, y)   & \longmapsto     & \left\langle x, y \right\rangle  \\ 
+\end{array}
+\]
+which verifies:
+\begin{enumerate}
+\item Linearity in the first argument : 
+  \begin{align*}
+  \forall x, y, z \in  E, \forall \al \in  \KK: \quad 
+  \left\langle \al x, y  \right\rangle &= \al \left\langle x, y \right\rangle \\
+  \left\langle x + y, z \right\rangle  &= \left\langle x, z \right\rangle + \left\langle y, z \right\rangle 
+  \end{align*}
+\item Conjugate symmetry: 
+  \[
+  \forall x, y \in  E: \quad 
+  \left\langle x,y \right\rangle = \overline{\left\langle y, x \right\rangle }
+  \]
+\item Positive difinitness: 
+  \begin{align*}
+    \left\langle x, x \right\rangle  &\geq 0 \\
+    \left\langle x, x \right\rangle  = 0 & \iff  x = 0_{E}
+  \end{align*}
+\end{enumerate}
+\end{definition}
+
+
+
+% end of file
