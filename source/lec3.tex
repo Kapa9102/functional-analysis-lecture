@@ -1,0 +1,131 @@
+% lec3.tex 
+\chapter{Compactness}
+\lecture{3}{08:12 AM Tue, Oct 07 2025}{} 
+\begin{definition}[Bolzano-Weirstrass Property]
+  A set $A \subset V $, is compact if from every sequence of 
+  $A $ we can extract a subsequence which is convergent in $A $.
+\end{definition}
+\begin{theorem}[Riesz]
+The closed unit ball of $V $ is compact if and only if 
+dimension of $V $ is finite.
+\end{theorem}
+\subsection{Equicontinuity}
+\begin{definition}[]
+Let $(X, d_1)  $ and $(Y, d_2)  $ be two metric spaces. \\
+Consider $F \subset \left\{  f : X \longrightarrow Y  \right\} $, we say
+that $F $ is equicontinuous at $x_0 \in  X $. if: 
+\[
+\forall \veps  > 0, \quad \exists \dd > 0, 
+\quad d_1(x, x_0) < \dd  \implies 
+d(f(x) , f(x_0) )  < \veps, \quad 
+\forall f \in   F
+\]
+\end{definition}
+\begin{definition}[]
+If $F $ is equicontinuous, at each point of $X $, then we say that $F $ is equicontinuous on 
+$X$.
+\end{definition}
+\begin{theorem}[Ascoli-Arzela Theorem]
+  Let $(X, d) $ be a compact metric space. A family $F  $ of real valued continuous functions on $X $ is 
+  relatively compact in $\mathcal{C} (X, \RR )  $ 
+  with the sup norm if and only if: 
+  \begin{enumerate}
+  \item $F $ is uniformally bounded
+    \item $ F$ is equicontinuous on $X $ 
+  \end{enumerate}
+\end{theorem}
+  \begin{theorem}[Bernestein-Weirstrass]
+    Let $[a,b]$ and consider $ f : [a,b]  \longrightarrow \RR  $ continuous 
+    function, then there exists a sequence of polynomial functions $(f_n ) _{n \in  \NN} $ such that 
+    $f_n$ converges uniformally to $f $ on $[a,b]$.
+  \end{theorem}
+  \begin{theorem}[Riesz representation]
+    Let $H $ be Hilbert space, and consider: 
+    \[
+    H' = 
+    \left\{  f : H \longrightarrow \CC  : \quad f \text{ continuous }     \right\}
+    \]
+    then: 
+    \[
+    \forall f \in   H', \quad \exists !y \in   H: \quad 
+    f(x) = \left\langle x, y \right\rangle 
+    \]
+  \end{theorem}
+  \begin{theorem}[]
+    Let $(E, \| . \| )  $ be a normed vector space, then there exists an inner product on $E $, if and only 
+    if $\| . \|  $ obeys the parallelogram law.
+    \[
+      \text{ \ding{46} }    \| x+y \| ^2  + \| x-y \| ^2  = 2 \left( \| x \| ^2  + \| y \| ^2  \right) 
+    \]
+  \end{theorem}
+\section{Hahn-Banach Theorems}
+\begin{theorem}[]
+Let $E $ be an $\RR  $-vector space and let $ p : E \longrightarrow \RR  $ 
+be a function such that:
+\begin{enumerate}
+  \item $p (\lm x) = \lm p(x) , \quad \forall \lm> 0, \quad \forall  x \in  E$ 
+    \item $ p(x+y) \leq  p(x)  + p(y), \quad \forall x,y \in   E  $  
+\end{enumerate}
+Let $G $ be a vector subspace of $E $, and let $ g : G \longrightarrow \RR  $be a linear function such that: 
+\[
+g(x)  \leq  p(x) , \quad \forall x \in   G
+\]
+\ding{43} then there exists $ f : E \longrightarrow \RR  $ linear such that: 
+\[
+\begin{cases}
+f(x) = g(x) , \quad \forall x \in  G \\
+f(x)  \leq  p(x) , \quad \forall x \in  
+\end{cases}
+\]
+\end{theorem}
+\begin{theorem}[]
+Let $G \subset E $ be a vector subspace of $E$. if $ g : G \longrightarrow \RR  $ is a linear
+continuous function then there exists $f \in  E'$. such that:
+\begin{enumerate}
+  \item[\ding{172}] $f(x) = g(x), \quad  \forall x \in   G $ 
+  \item[\ding{173}] $\| f \| _{E'} = \| g \| _{G'}$ 
+\end{enumerate}
+\[
+  \fbox{ 
+  \text{ 
+  \text{\ding{43}}   $\| f \| _{E'} = 
+  \| f \| _{\mathcal{L} (E, \RR ) } = \sup_{\| x \| \leq 1 , x \in  E}  \left| f(x)  \right|  $
+  }  
+  }
+\]
+\end{theorem}
+\begin{definition}[]
+Let $E $ be a normed space, an affine hyperplane is a subset of $E $. denoted by $H $, and defined by: 
+\[
+H = \left\{ x \in  E: \quad f(x) = \al \right\}
+\]
+where $\al $ is a real number and $f $ is a linear form in $E $. sometimes we write: 
+\[
+\left[ H = \al \right]
+\]
+\end{definition}
+\begin{definition}[]
+Let $A $ be a set, we say that $A $ is convex, if for all $x,y \in   A $ and for all $t \in  \left[ 0, 1 \right] $.
+\[
+\implies tx + (1-t) y \in  A
+\]
+\end{definition}
+\begin{theorem}[]
+An affine hyperplane.
+\[
+H = \left\{ x \in   E: \quad  f(x)  = \al\right\} 
+\]
+is closed if and only if $f $ is continuous.
+\end{theorem}
+\begin{definition}[]
+Let $A, B $ be two subsets of a vector space $E $, we say that $H = \left\{ x \in  E: \quad f(x) = \al \right\} $ 
+seperates $A $ and $B $, if: 
+\[
+f(x)  \geq \al, \quad \forall x \in   A
+\]
+and 
+\[
+f(x) \leq \al, \quad  \forall  x \in   B
+\]
+\end{definition}
+% end of file
