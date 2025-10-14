@@ -1,0 +1,78 @@
+% lec4.tex 
+\lecture{4}{08:16 AM Tue, Oct 14 2025}{} 
+\begin{theorem}[Hahn-Banach]
+  Let $A \subset E $, $B \subset E $ be two convex subsets such that $A \cap B = \emptyset  $. Assume that one
+  of them is open. Then there exists an affine hyperplane (closed) which seperates $A $ and $B $. i.e 
+  \[
+  \exists f \in   E', \quad \al \in   \KK
+  \]
+  such that
+  \[
+  f(x)  \geq \al, \forall x \in   A, \text{ and }  f(x)  \leq \al, \forall x \in   B.
+  \]
+\end{theorem}
+\begin{proposition}[]
+Let $C \subset E $ be a nonempty convex open subset 
+and let $x_0 \in   E \backslash C $. then
+there exists $f \in  E' $, such that
+\[
+f(x)  < f(x_0) \quad \quad \forall (x \in   C).
+\]
+In particular $\left[ f(x_0)  = \al \right] $ seperates $\left\{ x_0 \right\} $ and $C. $ 
+\end{proposition}
+\begin{theorem}[Hahn-Banach]
+  Let $A \subset E $, $B \subset E $ be tw oconvex nonempty subsets such that $A \cap B = \emptyset  $ we suppose
+  that one is compact and the second is closed. Then there exists a closed affine hyperplane which seperates strictly $A $ 
+  and $B $. i.e. there exists $f \in  E' $, and $\al \in  \KK(\RR )  $. such that 
+  \[
+  f(x)  < \al \quad \quad  (\forall  x \in   A),
+  \]
+  \[
+  f(x)  < \al, \quad \quad (\forall x \in   B).
+  \]
+\end{theorem}
+\begin{corollary}[]
+Let $F $ be a subspace of $E $, such that $\overline{F} \neq E$. Then there exists 
+$f \in  E', f\neq 0_{E'} $ where $f(x)  = 0, \quad \forall x \in  F $.
+\end{corollary}
+We apply the second version of Geometric Hahn-Banach (second version) to $A = \overline{F}, B = \left\{ x_0 \right\} $, 
+$x_0 \notin  \overline{F}.$  we have $A $ is a subspace so it's convex and closed, and $B $ is convex and compact 
+$A \cap B = \emptyset . $ 
+\texttt{Well the idea is pretty simple; Do it as an exercise.}
+\begin{theorem}[Banach-Steinhauss]
+  Let $E $ and $F $ be two Banach spaces, and let $(T_{i}) _{i \in  I} $ be a family 
+  not necessarly countable of continuous linear functions from $E $ into $F$,
+  \[
+    T_{i} \in   \mathcal{L} (E, F) .
+  \]
+  Assume that 
+  \[
+  \sup_{i \in  I}  \| T_{i}x \|  <  +\infty, \quad \quad (\forall  x \in   E).
+  \]
+  Then 
+  \[
+  \sup_{i \in  I} \| T_{i} \| _{\mathcal{L} (E, F) } <  +\infty,
+  \]
+  which means there exists $\exists c > 0 $, such that
+  \[
+  \| T_{i}x  \| \leq c \| x \| \quad \quad (\forall  x \in   E), \quad \forall i \in  I
+  \]
+\end{theorem}
+\begin{theorem}[]
+Let $E, F $ be two Banach spaces and let $(T_n ) _{n \in  \NN} $ be a sequence of $\mathcal{L} (E, F)  $ such that
+$\forall  x \in  E $, $T_n x $ converges to $Tx $, when $n $ converge to $+\infty  $, then we have:
+\begin{itemize}
+  \item \[
+  \sup_{n} \| T_n  \| _{\mathcal{L} (E, F) } <  +\infty 
+  \]
+  \item \[
+  T \in   \mathcal{L} (E ,F) 
+  \]
+  \item  \[
+  \| T \| _{\mathcal{L} (E ,F)} \leq 
+  \lim_{n \to \infty} \inf_{}  \| T_n  \| _{\mathcal{L} (E, F) }
+  \]
+    
+\end{itemize}
+\end{theorem}
+% end of file
