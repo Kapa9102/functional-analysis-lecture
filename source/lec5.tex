@@ -1,0 +1,122 @@
+% lec5.tex 
+\lecture{5}{08:05 AM Tue, Oct 21 2025}{} 
+\begin{corollary}[]
+Let $G $ be a vector space, and let $B $ be a subset of $G $. Assume that:
+\[
+\forall f \in   G': \quad 
+f(B)  = \left\{ f(b) :  b \in   B \right\} \text{ is bounded }   \implies 
+\text{ $B $ is bounded. }  
+\]
+\end{corollary}
+\begin{proof}
+Consider: 
+\[
+\begin{array}{cccc}
+      T_{b} : &  G'  & \longrightarrow & \RR  \\
+
+           &  f  & \longmapsto     & T_{b}(f) = 
+           \left\langle f, b \right\rangle = f(b) \\ 
+\end{array}
+\]
+Then using (B.S) principle, we get 
+\[
+\left| \left\langle f, b \right\rangle  \right|  \leq 
+c  \| f \|.
+\]
+Thus we get
+\[
+\| b \| \leq c, \quad \forall b \in   B,
+\]
+which means that $B $ is bounded.
+\end{proof}
+\begin{corollary}[]
+Let $G $ be a banach space and let $B' $ be a subset of $G' $ assume that:
+\[
+\forall x \in   G: \quad 
+\left\langle B', x \right\rangle  = 
+\left\{ \left\langle f,x \right\rangle : f \in   G' \right\} \text{ is bounded }  
+\implies 
+B' \text{ is bounded. }  
+\]
+\end{corollary}
+\begin{theorem}[Open mapping theorem]
+  Let $E $, and $F $ be two Banach spaces, and let $T \in  \mathcal{L} (E, F)  $ assume that $T $ is onto, 
+  then there exists $c > 0 $, such that:
+  \[
+  B_{F}(0, c) \subset T(B_{E}(0, 1) )  \quad \quad (*) 
+  \]
+\end{theorem}
+$(*)$ can be translated into image of open set is open. 
+\begin{corollary}
+  Let $(E, \| . \| _{1})  $, and $(E, \| . \| _{2})  $ be Banach spaces. If there exists a constant 
+  $c > 0 $, such that: 
+  \[
+  \| x \| _{1} \leq  c \| x \| _{2} \quad (\forall  x \in   E) 
+  \]
+  then  $\| . \| _{1} $, and $\| . \| _{2} $ are equivalents.
+\end{corollary}
+\begin{corollary}[]
+Let $E $, and $F $ be two Banach spaces, and let $T \in  \mathcal{L} (E, F) $ assume that 
+$T $ is bijective, then 
+\[
+T^{-1} \in   \mathcal{L} (F, E) 
+\]
+\end{corollary}
+% \begin{center}
+\chapter{Weak topologies}
+\section{Introduction}
+Let $X$ be a given set, and let $(Y_i , \sigma _i   ) $ be
+a familly of toplogical spaces, $I$ is an arbitrary
+set of index. 
+Let $ \FF _i  : X \longrightarrow Y_i  $ be 
+a familly of maps. 
+we search a toplogy on $X$, which is the smallest one, 
+and makes $\FF_i , \forall i \in   I$ continuous.  
+Let be $\tau $ this toplogy. we can prove that:
+\[
+\tau  = \left\{ 
+  \bigcup_{}^{} 
+  \bigcap_{\text{arbitrary finite}  }^{} \FF^{-1}_i (w _i ) , i
+\right\}
+\]
+defines the coarest toplogy, such that that
+$\FF_i ^{-1}(w _i ) $ is an elemetary open of $\tau $
+\\
+\noindent
+\textcolor{purple}{
+\underline{
+\ding{46}Remark:
+}
+}\\
+A neighborhood of $x \in   X$ is defined by:
+\[
+U = \bigcap_{\text{finite}  }^{} \FF_i ^{-1}(V_i ) 
+\]
+where $V_i $ is a neighborhood of $\FF_i (x)$.
+\begin{proposition}[]
+Let $(x_n )_{ n \in  \NN}$ be a sequence in $X$. Then 
+\[
+  x_n \overset{n \rightarrow \infty, \tau  }{ \rightarrow } x \iff 
+  \FF_i \left( x_n  \right) 
+  \overset{\forall i \in  I, n +\infty }{ \rightarrow } \FF_i (x_n) 
+\]
+\end{proposition}
+\begin{proof}
+\[
+  ( \implies )  \text{ Easy and known \ding{100}}  
+\]
+\[
+  ( \impliedby ) 
+\]
+We suppose that $\FF_i (x_n ) \overset{\forall i \in   I, n +\infty }{ \rightarrow } \FF_i (x) $ and we need to 
+prove that
+\[
+x_n \overset{n +\infty , \tau }{ \rightarrow } x
+\]
+Let $U$ be a neighborhood of $x$. then:
+\[
+U = \bigcap_{i \in   J, J \subset I, J \text{ finite}  }^{} \FF_i (V_i ) 
+\]
+Where $V_i $ is a neighborhood of $\FF_i (x) $. So for each $i \in   J$, $V_i $ is a neighborooh of $\FF_i (x) $ .
+\end{proof}
+% end of file
