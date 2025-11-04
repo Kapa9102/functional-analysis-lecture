@@ -1,0 +1,160 @@
+% lec7.tex 
+\lecture{7}{08:01 AM Tue, Nov 04 2025}{} 
+\begin{proof}
+\texttt{Continuation of the proof.}
+\begin{center}
+  (if $x_n \rightharpoonup x $, and $f_n \rightarrow f$ 
+  then $\left\langle f_n , x _n  \right\rangle  \rightarrow 
+  \left\langle f, x \right\rangle $)
+\end{center}
+\begin{align*}
+\left| \left\langle f _n , x _n  \right\rangle -
+\left\langle f, x \right\rangle \right|  
+&= \left| \left\langle f_n , x _n  \right\rangle - 
+\left\langle  f, x _n  \right\rangle + 
+\left\langle f, x _n  \right\rangle  - \left\langle f, x \right\rangle \right|  
+\\
+& \leq 
+\left| \left\langle f_n - f, x_n  \right\rangle  \right|  +
+\left| \left\langle f, x_n  - x \right\rangle  \right|  
+\\
+& \leq 
+\| x _n  \| 
+\| f _n  - f \|  + 
+\left|  \left\langle  f, x _n  - x \right\rangle  \right|  
+\rightarrow  0 \quad \text{ as $n \rightarrow +\infty $.}  
+\end{align*}
+\end{proof}
+\begin{proposition}[]
+  Let $C$ be a convex set of $E$. Then $C$ is closed for the strong toplogy, if and only if 
+  $C$ is closed for the weak toplogy.
+\end{proposition}
+\marginpar{few people see how strong this proposition is.}
+\begin{proof}
+  Suppose that $C$ is closed for the strong toplogy, and let us show that its closed
+  for the weak toplogy. If $C$ is closed for the weak toplogy, so $C^{c}$ is open 
+  for the weak topology. \\
+  $(\implies)$: Let $x_0 \in  \CC ^{c}$, $C$ is closed, $C$ is convex, applying Hahn-Banach theorem
+  there exists $f \in  E'$, and $\al \in  \RR $ such that: 
+  \[
+  f(x_0)  <  \al <  f(X) , \quad  \forall  x \in   C.
+  \]
+  from $f(x_0) <  \al$, one can set: 
+  \[
+  V = \left\{ x \in   E: f(x) <  \al \right\}
+  \]
+  remark that $x_0 \in  V$.
+  So $V$ is a neighborhood of $x_0$ in weak toplogy. we have $V \cap C = \emptyset $, which implies
+  $V \subset C^{c}$. means that $C^{c}$ is weak neighborhood of all it's element. this means once again
+  that $C^{c}$ is weakly open, so $C$ is weakly closed.
+\end{proof}
+\section{Weak star toplogy $\sigma (E', E)$}
+\marginpar{What we did on $E$, we will do it on $E'$. The same but in reverse.}
+Let us consider $E' = \mathcal{L} (E, \RR ) $ on $E'$ we can easily define two toplogies.
+\begin{enumerate}
+\item The strong toplogy defined by mean of norms.
+  \item The weak toplogy defined as in previous sections by $\sigma (E', E'')   $. The definition
+    of $\sigma (E', E'')$ can be done by:
+    \[
+    \begin{array}{cccc}
+          \FF_{f} : &  E'  & \longrightarrow & \RR  \\
+    
+               &  f  & \longmapsto     & \FF_{x}(f)  = f(x)  = \left\langle f, x \right\rangle  \\ 
+    \end{array}
+    \]
+    when $x$ varies in $E$, we get a familly of $(\FF_{x})_{x \in   E} $, and 
+    the weak toplogy on $E' (\sigma  (E', E''))$ is the easier toplogy defined on $E'$ which makes
+    all $\left( \FF_{x} \right)_{x}$ continuous in the sense (definition).
+\end{enumerate}
+\noindent
+\textcolor{red}{
+\underline{
+\ding{46}Remark:
+}
+}\\
+In general one can identify $E$ to a proper part of $E''$. In some cases we have by identification 
+$E = E''$ (which is called reflexive space). examples:
+\begin{itemize}
+  \item $\left( L^{p} \right) '' = L^{p} \quad 1 <  p <  +\infty  )\text{ reflexive }  $.
+    \item $\left( C_0 \right) '' \equiv \ell ^{+\infty }$  
+      \item Any Hilbert space is reflexive. 
+\end{itemize}
+\noindent
+\textcolor{red}{
+\underline{
+\ding{46}Remark:
+}
+}\\
+Since $E \subset E''$, that the $\sigma (E' , E)   $ is weaker than $\sigma (E', E'')$. 
+\begin{definition}[]
+We call weak star toplogy defined on $E'$, the toplogy $\sigma (E' , E)   $ 
+which is associated to the familly $(\FF_{x})_{x}$ in the sense of the previous coarser toplogy.
+\end{definition}
+\begin{proposition}[]
+The toplogy $\sigma (E', E)   $ is Hausdorff.
+\end{proposition}
+\begin{proof}
+Indeed, let $f_1, f_2 \in  E'$: $f_1 \neq  f_2 \implies \exists x_0 \in  E: f_1(x_0) \neq f_2(x_0)$, there there exists
+$\al \in  \RR :$ 
+\[
+f_1(x_0)  <  \al <  f_2 ( x_0) 
+\]
+let 
+\[
+  V_1 = \left\{ f \in   E': f(x_0) <  \al  \right\} = \FF^{-1}_{x_0}(] -\infty , \al[) 
+\]
+and 
+\[
+ V_2 = \left\{  f \in   E': f(x_0)  > \al  \right\} = \FF^{-1}_{x_0}\left( [\al, +\infty [\right) 
+\]
+we have $f_1 \in  V_1, f_2 \in  V_2.$ 
+\end{proof}
+\begin{proposition}[]
+Let $f_0 \in  E'$, if there exists $\left\{ x_1, \hdots , x_k  \right\}$ and $\veps  > 0$, the set :
+\[
+V = \left\{ f \in   E' : \left| \left\langle f - f_0, x _i  \right\rangle  \right|  < \veps , i = \overline{1, k} \right\}.
+\]
+is a neighborhood of $f_0$ in $\sigma (E' , E)   $.
+\end{proposition}
+\noindent\textbf{Notation:} We denote by $f_n  \overset{  *}{ \rightharpoonup } f$ for $\sigma (E', E)   $.
+\begin{theorem}[]
+  Let $(f_n ) _{n \in  \NN_0} \subset E'$, and let $(x_n ) _{n \in  \NN_0} \subset E.$ we have:
+  \begin{itemize}
+    \item [\ding{172} ] $f_n \overset{  *}{ \rightharpoonup } f \iff 
+      \left\langle f_n , x \right\rangle \overset{n + \infty }{ \rightarrow } \left\langle f, x \right\rangle  $ .
+    \item [\ding{173} ] $f_n \rightarrow f \implies f_n  \rightharpoonup f \implies f_n  \overset{  *}{ \rightharpoonup } f.$ 
+    \item [\ding{174} ] $f_n \overset{  *}{\rightharpoonup } f \implies \text{ that }  (f_n ) _{n \in  \NN} \text{ is bounded and: }
+      \| f \|  \leq  \lim_{n \to \infty} \inf_{} \| f_n  \| $.
+    \item [\ding{175} ] $f_n  \overset{*}{ \rightharpoonup } f$, and $x_n \rightarrow x.$  
+  \end{itemize}
+  Then: 
+  \[
+  \left\langle f_n , x _n  \right\rangle \rightarrow \left\langle f, x \right\rangle 
+  \]
+  but if $f_n \overset{ *}{ \rightharpoonup } f$, $x_n \rightharpoonup x$ we can not conclude.
+\end{theorem}
+\begin{corollary}[Algebraic]
+  Let $X$ be a vector space. and let $\Psi , \FF_1, \hdots , \FF _k $ be $k+1$ linear functionals 
+  defined on $X,$ such that: 
+  \[
+  \left( \FF_i (v) = 0, i = \overline{1, k} \right)  \implies 
+  \Psi (v)  = 0, \quad \forall  v \in   X
+  \]
+  then there exists $\lm_1, \hdots, \lm_k $, such that:
+  \[
+  \Psi = \sum_{i=1}^{k} \lm_{i}\FF_i 
+  \]
+  \begin{proof}
+    Let us consider:
+    \[
+    \begin{array}{cccc}
+          F : &  X  & \longrightarrow & \RR ^{k+1}\\
+    
+               &  u  & \longmapsto     & F(u)  = \left( \Psi (u) , \FF_1(u) , \hdots , \FF_{k}(u)  \right)  \\ 
+    \end{array}
+    \]
+    remark that $(1, 0, \hdots ) \notin  F(X).  $ Let us denote by $x_0 = \left( 1, 0, \hdots , 0 \right) \in  \RR ^{k+1}$. 
+    We apply Hahn banach for $\left\{ x_0 \right\}$, and $F(X)$. so, there exists $\al \in  \RR $ and $f \in  (\RR ^{k+1})'$.
+  \end{proof}
+\end{corollary}
+% end of file

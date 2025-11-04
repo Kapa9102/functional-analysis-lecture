@@ -1,0 +1,161 @@
+% lec6.tex 
+\lecture{6}{08:04 AM Tue, Oct 28 2025}{} 
+\begin{proposition}[]
+Let $(x_n ) _{n \in  \NN} \subset X$, then we have:
+\[
+x_n  \overset{\tau }{ \rightarrow } _{n \rightarrow +\infty }x \iff  \FF _i (x_n )  \rightarrow _{n \rightarrow +\infty }
+\FF_i (x) 
+\]
+\end{proposition}
+\begin{proof}
+  \ding{50} If $\FF_i , i \in  I$ is continuous, and $x_n  \rightarrow x$ then 
+$\FF_i (x_n ) \rightarrow \FF_i (x) $ for all $i \in  I$. 
+\\\ding{50} Conversely, suppose $\FF_i (x_n )  \rightarrow \FF_i (x) $ and do we have 
+$x_n \overset{\tau }{ \rightarrow } x$?. we have, 
+\[
+\FF_i (x_n )  \rightarrow \FF_i (x)  \iff 
+\forall V _i \in  \mathcal{V} (\FF_i (x) ), \exists  N_i  \in  \NN: 
+\forall n \geq N_i  \rightarrow \FF_i (x_n )  \in   V_i,
+\]
+Thus we get $x_n \in  \FF_i ^{-1}(V_i) $, so $\forall n = \sup_{i} N_i \implies x_n \in  \bigcap_{i}^{} \FF_i ^{-1}(V_i ) $ which 
+is a neighborhood of $x$, thus $x_n  \overset{\tau }{ \rightarrow } x.$ 
+\end{proof}
+\begin{proposition}[]
+Let $Z$ be a toplogical space, and let $ \Psi  : Z \longrightarrow X $ be a mapping. Then 
+$\Psi $ is continuous if and only if $\FF \circ  \Psi $ is continuous.
+\end{proposition}
+\begin{proof}
+  \ding{50} $( \implies ) $ (evident). If $\FF_i $ and $\Psi $ are continuous then $\FF_i  \circ  \Psi $ is continuous.
+  \ding{50} $( \impliedby ) $ Suppose that $\FF_i  \circ  \Psi $ is continuous and $\FF_i $ is continuous, how about 
+  $\Psi ?$.  $\Psi $ is continious $\iff $ all open of $X$ $ \implies $ inverse image by $\Psi $ is open in $Z$. Let
+  $U$ be an open set in $\tau$, so $U = \bigcup_{\text{arbitrary}  }^{} \bigcap_{\text{finite}  }^{} \FF_i ^{-1}(W_i ) $, 
+  such that $W_i $ is open in $\mathcal{O} _{i}$. Then 
+  \begin{align*}
+    \Psi ^{-1}(U)  &= 
+    \Psi ^{-1} \left( 
+      \bigcup_{\text{arb}  }^{} 
+      \bigcap_{\text{finite}  }^{} 
+      \FF_i ^{-1}(W_i ) 
+    \right) \\
+                   &= 
+                   \bigcup_{\text{arb}  }^{} \bigcap_{\text{finite}  }^{} 
+                   \left( \FF \circ  \Psi  \right) ^{-1}(W_i ) , \quad \text{open in $Z$.}  
+  \end{align*}
+\end{proof}
+\section{Weak topology}
+Let $E$ be a Banach space, and let $f \in  E'$. We denote by $ \FF_{f} : E \longrightarrow \RR  $ the linear form defined by, 
+\[
+  \FF_{f}(x)  = f(x), \forall x \in   E,  f \in  E'.
+\]
+We have a familly $\left( \FF_{f} \right) _{f \in  E'}$ of maps from $E$ into $\RR .$ 
+\\\noindent\textbf{Remark: }On $E$ we have already a toplogy which is defined by the norm (and it's called 
+strong toplogy). On $E$, we will define a new toplogy called weak, denoted by $ \sigma   (E, E')   $ and defined by:
+\begin{definition}[]
+The weak toplogy $\sigma (E, E')   $ on $E$ is the \it"Cheapest"\normalfont, the coarset toplogy associated 
+to $(\FF_{f}), f \in  E' $, in the sense of the previous section where;
+\[
+X = E, Y_i = \RR \quad  \forall i, I = E'.
+\]
+\\\noindent\textbf{Remark: }We denote by 
+\[
+x_n \rightharpoonup x
+\]
+to mean weak convergence, or
+\[
+x_n  \overset{\sigma (E, E')   }{ \rightarrow } x
+\]
+$x_n $ converges to $x$ weakly.
+\end{definition}
+\begin{proposition}[]
+The weak toplogy $\sigma (E, E')   $ is Hausdorff.
+\end{proposition}
+\begin{proof}
+Let $x_1, x_2 \in  E$ such that $x_1 \neq  x_2$, is there $U_1 \in  \mathcal{V} (x_1) , U_2 \in  \mathcal{V}(x_2)  $ of 
+$\sigma (E, E')   $, such that $U_1 \cap U_2 = \emptyset $. Let consider $\left\{ x_1 \right\} = A$ and 
+$\left\{ x_2 \right\}= B$. Using second theorem of H.B, there exists $\al \in  \RR, f \in  E'$ such that 
+\[
+f(x_1)  < \al <  f(x_2) 
+\]
+Let 
+\begin{align*}
+U_1 &= \left\{ x \in  E: f(x) < \al \right\} \\
+U_2 &= \left\{ x \in  E: f(x)  > \al \right\}
+\end{align*}
+so 
+\begin{align*}
+U_1 &= f^{-1}((-\infty , \al) ) \\
+U_2 &= f^{-1}((\al, +\infty ) )  
+\end{align*}
+and $U_1 \cap U_2 = \emptyset $, also $U_1, U_2 \in  \sigma (E, E')   $.
+\end{proof}
+\begin{theorem}[]
+Let $x_0 \in  E$, and let $\veps  > 0$. Let $\left\{ f_1, f_2, \hdots , f_k  \right\} \subset E'.$  Consider, 
+\[
+V = \left\{ x \in  E: \left| \left\langle f_i , x-x_0 \right\rangle  \right|  < \veps , i = \overline{1,k} \right\}
+\]
+then $V$ is a neighborhood of $x_0$ in the toplogy $\sigma (E, E').$ 
+\end{theorem}
+\begin{proof}
+One has $V = \bigcap_{i=1}^{k} \FF^{-1}(f_i )\left( (a_i  - \veps , a_i + \veps )  \right)  $, where 
+$a_i  = \left\langle f_i , x_0 \right\rangle $ which is open for $\sigma (E, E')   $, and $x_0 \in   V.$  Conversely, 
+Let $U$ be a neighborhood of $x_0$ for the topology $\sigma (E, E')   $. So it takes the form: 
+\[
+\bigcap_{\text{finite}  }^{} \FF^{-1}_{f}(W_i )  = W.
+\]
+where $x_0 \in  W$, and $W \subset U$ and $W_i $ is open in $\RR .$  $W_i $ is open in $\RR $, so $\exists  \veps  > 0$ such that
+$\left( a_i - \veps , a_i  + \veps  \right) \subset W_i.$ as it follows that $x_0 \in  W \subset U.$ 
+\end{proof}
+\begin{theorem}
+  Let $E$ be a Banach space, and let $(x_n ) _{n \in  \NN} \subset E$ be a sequence. Then:
+  \begin{itemize}
+    \item $x_n  \overset{\sigma (E, E')   }{ \rightarrow } x \iff f(x_n )  \overset{\left| . \right|  }{ \rightarrow }_{n +\infty }
+      f(x) , \forall f \in   E. $ 
+      \item $x_n \overset{\| . \| }{ \rightarrow }x  \implies x_n  \rightharpoonup x$  
+        \item $x_n \rightharpoonup x \implies (x_n ) _{n \in  \NN} \text{ is bounded and } \| x \|  \leq \lim_{n \to \infty} 
+          \inf_{}  \| x_n  \| $   
+          \item $x_n  \rightharpoonup x, \text{and }  f_n  \rightarrow f \implies 
+            \left\langle f_n , x_n  \right\rangle \rightharpoonup \left\langle f, x \right\rangle $  
+  \end{itemize}
+\end{theorem}
+\begin{proof}
+  \ding{50} \ding{172} Definition of coarset toplogy + Proposition $1.$ \\
+  \ding{50} \ding{173} One has $x_n  \rightharpoonup x \iff f(x_n ) \rightarrow f(x) , \forall f \in  E'$. 
+  \[
+  \left| \left\langle f, x_n  - x \right\rangle  \right|   \leq  \| f \| \cdot \| x_n -x \| 
+  \]
+  when $x_n  \overset{\| . \| }{ \rightarrow } x$, so $\left| \left\langle f, x_n -  x \right\rangle  \right|  \rightarrow _{n +\infty } 0$, means $x_n  \rightharpoonup x$.
+ \ding{50} \ding{174} $x_n  \rightharpoonup x \iff f(x_n ) \rightarrow f(x) , \forall f \in   E'$, we have
+ $\left\langle f, x_n  \right\rangle$ converges to $\left\langle f, x \right\rangle  $ for all $f \in   E'.$ Consider
+ $\left( \left\langle f, x_n  \right\rangle  \right) _{n \in  \NN}$ is convergent so bounded. 
+ Let $E''$ be the bidual of $E$, and consider $ J : E\longrightarrow  E''$
+cannonical injection, such that $J(x)(f) = \left\langle f, x \right\rangle $. So 
+\[
+\left( J(x_n ) (f)  \right) _{n \in  \NN} = \left( \left\langle f, x_n  \right\rangle  \right) _{n \in  \NN}
+\]
+$J(x_n ) $ is bounded, using uniform boundedness principle we get
+\[
+\| J(x_n )  \| <  +\infty 
+\]
+but $\| J(x_n )  \| = \| x_n  \|  <  +\infty $, and 
+\[
+\left| \left\langle f, x_n  \right\rangle  \right|  \leq 
+\| f \| \| x_n  \| 
+\]
+and thus
+\[
+  \left| \left\langle f,x \right\rangle  \right|   \leq 
+  \| f \| \lim_{n \to \infty} \inf_{} \| x_n  \| 
+\]
+which implies 
+\[
+  \| x \| \leq \lim_{n \to \infty} \inf_{} 
+  \| x \| .
+x \rightharpoonup x, f_n \overset{\| . \| }{ \rightarrow } f
+\]
+\begin{align*}
+  \left| \left\langle f_n  - f, x_n  - x \right\rangle  \right|   
+  &= \left| \left\langle f_n , x_n  - x \right\rangle  - \left\langle f, x_n - x \right\rangle \right|  
+\end{align*}
+\tt Proof is not complete, next time \ding{100}
+\end{proof}         
+% end of file
